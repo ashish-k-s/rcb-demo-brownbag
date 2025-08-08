@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating, running, and debugging playbooks :: Introduction to  Ansible</title>
+    <link rel="prev" href="setting-up-a-basic-ansible-environment.html">
+    <link rel="next" href="applying-concepts-through-practical-exercises.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../basics-of-ansible/basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="hands-on-lab.html">Hands-on Lab</a></li>
+    <li><a href="creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating, running, and debugging playbooks</h1>
+<div class="sect2">
+<h3 id="_creating_running_and_debugging_playbooks"><a class="anchor" href="#_creating_running_and_debugging_playbooks"></a>Creating, Running, and Debugging Playbooks</h3>
+<div class="paragraph">
+<p>Ansible playbooks are files written in YAML that contain a series of tasks. These tasks are executed by Ansible when run against a set of managed nodes (hosts). Playbooks enable you to manage systems, deploy applications, and orchestrate complex IT tasks in a simple and human-readable format. Here&#8217;s how to create, run, and debug playbooks:</p>
+</div>
+<div class="sect3">
+<h4 id="_1_creating_playbooks"><a class="anchor" href="#_1_creating_playbooks"></a>1. Creating Playbooks</h4>
+<div class="paragraph">
+<p>To create a playbook, use any text editor or IDE and save the file with a <code>.yml</code> or <code>.yaml</code> extension. A basic playbook structure looks like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+- name: My first playbook
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Ensure Apache is installed
+      apt:
+        name: apache2
+        state: present
+
+    - name: Start the Apache service
+      service:
+        name: apache2
+        state: started</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code>: A descriptive name for your playbook.</p>
+</li>
+<li>
+<p><code>hosts</code>: The target hosts or groups of hosts where tasks will be executed. In this example, <code>webservers</code> is a predefined host group.</p>
+</li>
+<li>
+<p><code>become</code>: Whether to become a different user (usually the root user) before executing tasks (<code>yes</code>) or not (<code>no</code>).</p>
+</li>
+<li>
+<p><code>tasks</code>: A list of tasks to execute on the target hosts.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_running_playbooks"><a class="anchor" href="#_2_running_playbooks"></a>2. Running Playbooks</h4>
+<div class="paragraph">
+<p>To run your playbook, use the <code>ansible-playbook</code> command followed by the path to your playbook file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-playbook -i &lt;inventory_file&gt; playbook.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Replace <code>&lt;inventory_file&gt;</code> with the path to your Ansible inventory file, which defines host groups and their corresponding managed nodes. For instance, if you&#8217;re using a simple hosts file named <code>hosts</code>, the command would look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-playbook -i hosts playbook.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ansible will then connect to the specified hosts and execute the tasks defined in your playbook.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_debugging_playbooks"><a class="anchor" href="#_3_debugging_playbooks"></a>3. Debugging Playbooks</h4>
+<div class="paragraph">
+<p>Debugging Ansible playbooks can be accomplished using various methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Using <code>-vvv</code> or <code>--verbose</code> flag</strong>: Increase verbosity with the <code>-vvv</code> or <code>--verbose</code> flag to get detailed output during playbook execution, which helps in identifying issues.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-playbook -i hosts -vvv playbook.yml
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Using <code>ansible-console</code></strong>: For interactive debugging, use the <code>ansible-console</code> command to enter an interactive shell where you can execute tasks and inspect variables:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-console -i hosts
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Setting <code>debug</code> in tasks</strong>: To print debug messages within a task, add <code>debug:</code> to the YAML structure. This will output the specified message during playbook execution:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+  - name: Print a debug message
+    debug:
+      msg: "This is a debug message"
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Using <code>pause</code> in tasks</strong>: To pause execution at a specific task for manual intervention, use the <code>pause</code> module. This is useful for stepping through playbooks and inspecting their state:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+  - name: Pause execution
+    pause:
+      prompt: "Press enter to continue..."
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By understanding these methods of creating, running, and debugging Ansible playbooks, you can efficiently manage systems, deploy applications, and orchestrate complex IT tasks. Practice writing and executing playbooks to solidify your grasp on this essential Ansible skill.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a></span>
+  <span class="next"><a href="applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

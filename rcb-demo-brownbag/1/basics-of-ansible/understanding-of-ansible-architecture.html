@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Understanding of Ansible architecture :: Introduction to  Ansible</title>
+    <link rel="prev" href="basics-of-ansible.html">
+    <link rel="next" href="installation-and-configuration.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="basics-of-ansible.html">Basics of Ansible</a></li>
+    <li><a href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Understanding of Ansible architecture</h1>
+<h1 id="_understanding_of_ansible_architecture" class="sect0"><a class="anchor" href="#_understanding_of_ansible_architecture"></a>Understanding of Ansible Architecture</h1>
+<div class="paragraph">
+<p>Ansible, an open-source automation tool, facilitates configuration management, application deployment, and task automation. To effectively utilize Ansible, understanding its architecture is crucial. This section will detail key architectural components, their roles, and interactions within the Ansible framework.</p>
+</div>
+<div class="sect1">
+<h2 id="_components_of_ansible_architecture"><a class="anchor" href="#_components_of_ansible_architecture"></a>Components of Ansible Architecture</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_1_control_node"><a class="anchor" href="#_1_control_node"></a>1. Control Node</h3>
+<div class="paragraph">
+<p>The control node is the central point for managing and orchestrating automation tasks in an Ansible environment. It runs the <code>ansible</code> command-line tool and stores playbooks, inventory files, and other related resources. The control node communicates with managed nodes (also known as targets) using the Simple Authentication and Security Layer (SASL) over SSH or through its own transport layer, <code>paramiko</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features"><a class="anchor" href="#_key_features"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Hosts playbooks and inventories</p>
+</li>
+<li>
+<p>Executes playbooks against managed nodes</p>
+</li>
+<li>
+<p>Stores connection details and module facts</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_managed_nodes_targets"><a class="anchor" href="#_2_managed_nodes_targets"></a>2. Managed Nodes (Targets)</h3>
+<div class="paragraph">
+<p>Managed nodes are the servers, virtual machines, or containers that Ansible manages and automates. These nodes can be configured using playbooks, which define tasks to set up, maintain, or update software and services on managed nodes.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_2"><a class="anchor" href="#_key_features_2"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Receive and execute tasks from control node</p>
+</li>
+<li>
+<p>Provide feedback to control node about task status (success/failure)</p>
+</li>
+<li>
+<p>Can run native packages like 'apt', 'yum' for package management</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_inventory"><a class="anchor" href="#_3_inventory"></a>3. Inventory</h3>
+<div class="paragraph">
+<p>The inventory file is a configuration file that lists managed nodes and their attributes, grouped into logical entities if desired. Ansible uses this inventory file to identify which hosts to manage and how. Inventories can be dynamically generated using various sources like cloud APIs, LDAP, or static files (INI, YAML).</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_3"><a class="anchor" href="#_key_features_3"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Organizes hosts and groups</p>
+</li>
+<li>
+<p>Specifies connection details and variables for targets</p>
+</li>
+<li>
+<p>Supports dynamic generation from external data sources</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_modules"><a class="anchor" href="#_4_modules"></a>4. Modules</h3>
+<div class="paragraph">
+<p>Ansible modules are reusable, standalone scripts that perform specific tasks on managed nodes. They enable the automation of various system administration activities like package management, file manipulation, service control, and user management. Modules can be built-in or custom. Built-in modules cover a wide range of functionalities, while custom modules allow extending Ansible&#8217;s capabilities for specialized use cases.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_4"><a class="anchor" href="#_key_features_4"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Perform specific actions on managed nodes (e.g., <code>apt</code>, <code>user</code>)</p>
+</li>
+<li>
+<p>Return facts and changes made during execution</p>
+</li>
+<li>
+<p>Can be built-in or user-defined</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_playbooks"><a class="anchor" href="#_5_playbooks"></a>5. Playbooks</h3>
+<div class="paragraph">
+<p>Playbooks are Ansible&#8217;s configuration, deployment, and orchestration language. They define a series of automated tasks (plays) to be executed on managed nodes or groups of nodes. Playbooks simplify automation by organizing multiple tasks into reusable structures, promoting consistency and reducing errors through version control.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_5"><a class="anchor" href="#_key_features_5"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Define a sequence of tasks (plays) to execute</p>
+</li>
+<li>
+<p>Allow variable management and role usage for modularity</p>
+</li>
+<li>
+<p>Enable conditional task execution with <code>when</code> conditions and loops (<code>with_</code>, <code>with_items</code>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_roles"><a class="anchor" href="#_6_roles"></a>6. Roles</h3>
+<div class="paragraph">
+<p>Roles in Ansible provide a mechanism for organizing playbooks, tasks, files, templates, and other related content into reusable units. They facilitate code reuse, modularity, and better collaboration by enabling separation of concerns within a project. Roles are defined in dedicated directories and referenced in playbooks using the <code>roles</code> keyword.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_6"><a class="anchor" href="#_key_features_6"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Group related files, tasks, and variables</p>
+</li>
+<li>
+<p>Encourage modular design and reusability</p>
+</li>
+<li>
+<p>Simplify dependency management between components</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_connection_plugin"><a class="anchor" href="#_7_connection_plugin"></a>7. Connection Plugin</h3>
+<div class="paragraph">
+<p>The connection plugin establishes a communication channel between the control node and managed nodes. Ansible offers multiple plugins for connecting via SSH (default), WinRM for Windows, or other custom transports. This flexibility ensures compatibility with diverse environments and platforms.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_7"><a class="anchor" href="#_key_features_7"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Enables secure remote execution</p>
+</li>
+<li>
+<p>Supports various protocols (SSH, WinRM)</p>
+</li>
+<li>
+<p>Extensible through custom plugins for specialized connections</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_8_facts"><a class="anchor" href="#_8_facts"></a>8. Facts</h3>
+<div class="paragraph">
+<p>Ansible gathers a wealth of information about managed nodes known as facts. These facts describe system details such as operating system, IP address, installed packages, and more. Playbooks can access these facts to make decisions dynamically, tailoring automation based on the target environment.</p>
+</div>
+<div class="sect3">
+<h4 id="_key_features_8"><a class="anchor" href="#_key_features_8"></a>Key features:</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Provide detailed system characteristics</p>
+</li>
+<li>
+<p>Support conditional task execution (<code>when</code>)</p>
+</li>
+<li>
+<p>Accessible via <code>ansible</code> command or API</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_interaction_and_workflow"><a class="anchor" href="#_interaction_and_workflow"></a>Interaction and Workflow</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When an Ansible playbook is executed, the following workflow ensues:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The control node reads the inventory file to determine which managed nodes to target.</p>
+</li>
+<li>
+<p>For each target, it establishes a connection using the chosen transport method (e.g., SSH).</p>
+</li>
+<li>
+<p>Modules are invoked on managed nodes to carry out defined tasks based on playbook instructions.</p>
+</li>
+<li>
+<p>Managed nodes execute modules and return results (facts and changes) back to the control node.</p>
+</li>
+<li>
+<p>The control node processes these results, updates its internal state, and presents the outcomes to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Understanding Ansible&#8217;s architecture is fundamental for harnessing its automation capabilities efficiently. By familiarizing yourself with control nodes, managed nodes, inventories, modules, playbooks, roles, connection plugins, and facts, you can effectively manage and automate diverse IT environments using Ansible.</p>
+</div>
+<div class="paragraph">
+<p><strong>Next:</strong> Proceed to [Writing simple playbooks](writing-simple-playbooks.adoc) for practical implementation of Ansible concepts.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="basics-of-ansible.html">Basics of Ansible</a></span>
+  <span class="next"><a href="installation-and-configuration.html">Installation and configuration</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Control flow with roles :: Introduction to  Ansible</title>
+    <link rel="prev" href="handling-variables-and-templates.html">
+    <link rel="next" href="../hands-on-lab/hands-on-lab.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="basics-of-ansible.html">Basics of Ansible</a></li>
+    <li><a href="control-flow-with-roles.html">Control flow with roles</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Control flow with roles</h1>
+<div class="sect1">
+<h2 id="_control_flow_with_roles"><a class="anchor" href="#_control_flow_with_roles"></a>Control Flow with Roles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ansible&#8217;s role system offers a structured approach to manage tasks and playbooks, enhancing reusability, readability, and maintainability. Roles allow you to group related tasks, variables, files, templates, and modules together, forming a self-contained unit of work. This modular design makes it easier for teams to collaborate and manage complex automation projects.</p>
+</div>
+<div class="paragraph">
+<p>Roles in Ansible function primarily as a way to organize playbooks and ensure that related tasks are grouped together. By utilizing roles, you can promote the DRY (Don&#8217;t Repeat Yourself) principle effectively and avoid code duplication.</p>
+</div>
+<div class="sect2">
+<h3 id="_key_components_of_roles"><a class="anchor" href="#_key_components_of_roles"></a>Key Components of Roles:</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>tasks</strong>: A collection of one or more tasks performed within a role. Tasks in a role often share common variables and handle a specific area of configuration management.</p>
+</li>
+<li>
+<p><strong>handlers</strong>: Specialized tasks designed to respond to changes in the system state managed by tasks. Handlers are only executed when notified, optimizing performance by avoiding unnecessary repeated runs.</p>
+</li>
+<li>
+<p><strong>variables</strong>: Files that store reusable values, making it easier to manage and update configuration settings across playbooks and roles.</p>
+</li>
+<li>
+<p><strong>defaults</strong>: Optional variable files providing default values for variables declared in tasks within the role.</p>
+</li>
+<li>
+<p><strong>files</strong>: A collection of files associated with a role, such as configuration templates or additional scripts.</p>
+</li>
+<li>
+<p><strong>templates</strong>: Jinja2-based templates allowing dynamic content generation during playbook execution based on variables and data provided.</p>
+</li>
+<li>
+<p><strong>meta</strong>: Contains metadata about the role, including information like version, dependencies, and licenses.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_roles"><a class="anchor" href="#_creating_roles"></a>Creating Roles:</h3>
+<div class="paragraph">
+<p>To create a role in Ansible, follow these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Create a roles directory</strong> within your project if not already present:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```
+mkdir -p playbooks/roles
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Create a new role</strong>: For example, a 'web_server' role:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```
+cd playbooks/roles
+ansible-galaxy init web_server
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Edit the role&#8217;s structure</strong> to add tasks, handlers, variables, and other necessary components within the newly created <code>web_server</code> directory.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_roles_in_playbooks"><a class="anchor" href="#_using_roles_in_playbooks"></a>Using Roles in Playbooks:</h3>
+<div class="paragraph">
+<p>To utilize roles in your playbooks, include them using the <code>roles</code> keyword followed by the path to your custom role or a pre-built role from Ansible Galaxy:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+- hosts: webservers
+  become: yes
+  roles:
+    - path/to/your/web_server_role</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_best_practices_for_roles"><a class="anchor" href="#_best_practices_for_roles"></a>Best Practices for Roles:</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Keep roles small and focused</strong>: Each role should address a single responsibility or task, ensuring modularity and reusability.</p>
+</li>
+<li>
+<p><strong>Leverage defaults and variables</strong>: Utilize default variable files to provide sensible defaults while allowing users to override them as needed.</p>
+</li>
+<li>
+<p><strong>Use handlers for reactive tasks</strong>: Employ handlers to respond to changes in the system state without unnecessary repeated task executions.</p>
+</li>
+<li>
+<p><strong>Implement templating</strong>: Leverage Jinja2 templates for generating dynamic content, making your roles adaptable and reusable across different environments.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By effectively using Ansible roles, you can create well-organized, maintainable automation playbooks that are easier to manage and scale for complex IT infrastructure.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="handling-variables-and-templates.html">Handling variables and templates</a></span>
+  <span class="next"><a href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

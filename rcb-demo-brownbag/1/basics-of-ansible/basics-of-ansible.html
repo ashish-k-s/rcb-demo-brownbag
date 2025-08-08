@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Basics of Ansible :: Introduction to  Ansible</title>
+    <link rel="prev" href="../LABENV/index.html">
+    <link rel="next" href="understanding-of-ansible-architecture.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="basics-of-ansible.html">Basics of Ansible</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Basics of Ansible</h1>
+<h1 id="_basics_of_ansible" class="sect0"><a class="anchor" href="#_basics_of_ansible"></a>Basics of Ansible</h1>
+<div class="paragraph">
+<p>This section introduces the fundamentals of Ansible, an open-source automation tool used for software provisioning, configuration management, and application deployment. It covers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Understanding of Ansible architecture</strong>: Learn about the Ansible architecture, including its server component (Ansible Tower or AWX) and client components (Ansible Control Node and Managed Nodes).</p>
+</li>
+<li>
+<p><strong>Installation and configuration</strong>: Get step-by-step instructions to install Ansible on various operating systems and configure it for your environment.</p>
+</li>
+<li>
+<p><strong>Writing simple playbooks</strong>: Discover how to create basic automation scripts called playbooks using YAML syntax, which define workflows (plays) to manage configurations on remote nodes.</p>
+</li>
+<li>
+<p><strong>Managing hosts with Ansible</strong>: Understand how to organize and manage target hosts using inventories, groups, and variables for efficient configuration management.</p>
+</li>
+<li>
+<p><strong>Using Ansible modules</strong>: Explore the wide range of built-in Ansible modules that provide reusable, shareable, and maintainable automation code for various tasks like package management, service control, and file manipulation.</p>
+</li>
+<li>
+<p><strong>Handling variables and templates</strong>: Learn to work with variables and Jinja2 templating to make playbooks more dynamic and adaptable to different environments or use cases.</p>
+</li>
+<li>
+<p><strong>Control flow with roles</strong>: Master the concept of roles for organizing playbooks, tasks, handlers, files, templates, and other Ansible artifacts in a modular and reusable manner, improving code maintainability and readability.</p>
+</li>
+</ul>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../LABENV/index.html">Lab Environment</a></span>
+  <span class="next"><a href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

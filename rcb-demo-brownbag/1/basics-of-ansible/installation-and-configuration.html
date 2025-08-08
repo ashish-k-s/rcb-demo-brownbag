@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Installation and configuration :: Introduction to  Ansible</title>
+    <link rel="prev" href="understanding-of-ansible-architecture.html">
+    <link rel="next" href="writing-simple-playbooks.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="basics-of-ansible.html">Basics of Ansible</a></li>
+    <li><a href="installation-and-configuration.html">Installation and configuration</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Installation and configuration</h1>
+<div class="sect2">
+<h3 id="_installation_and_configuration"><a class="anchor" href="#_installation_and_configuration"></a>Installation and Configuration</h3>
+<div class="paragraph">
+<p>Ansible can be installed on any system that runs one of the following operating systems: Linux (RHEL, CentOS, Fedora, Ubuntu, Debian), macOS, or Windows (PowerShell). This section will guide you through the installation process on a Linux system, specifically Ubuntu. The process is similar for other supported platforms with slight variations in commands.</p>
+</div>
+<div class="sect3">
+<h4 id="_1_update_your_systems_package_index"><a class="anchor" href="#_1_update_your_systems_package_index"></a>1. Update your system&#8217;s package index</h4>
+<div class="paragraph">
+<p>Before installing Ansible, ensure that your system&#8217;s package list is up-to-date:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">[WARNING]
+Ensure you have superuser privileges (using sudo) before executing the following commands to avoid permission issues.
+
+==== Update Package Index
+
+For Ubuntu/Debian based systems, use the following command:
+
+sudo apt update</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_install_ansible"><a class="anchor" href="#_2_install_ansible"></a>2. Install Ansible</h4>
+<div class="paragraph">
+<p>Ansible is available in the default repositories of most Linux distributions including Ubuntu. To install it, run:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">[WARNING]
+Ensure you have superuser privileges (using sudo) before executing the following commands to avoid permission issues.
+
+==== Install Ansible
+
+For Ubuntu/Debian based systems, use the following command:
+
+sudo apt install ansible</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_verify_the_installation"><a class="anchor" href="#_3_verify_the_installation"></a>3. Verify the installation</h4>
+<div class="paragraph">
+<p>To verify if Ansible was installed successfully, check its version:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">==== Check Ansible Version
+
+Run the following command to display the Ansible version:
+
+ansible --version</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You should see an output similar to this, confirming that Ansible is correctly installed and ready for use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ansible 2.10.44 (develop-5.3.2-95-g56c1a728) python3 on linux_x86_64</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_configuration"><a class="anchor" href="#_4_configuration"></a>4. Configuration</h4>
+<div class="paragraph">
+<p>Ansible configuration is handled by a file named <code>ansible.cfg</code>. This file contains various settings that customize Ansible&#8217;s behavior. By default, it&#8217;s located at <code>/etc/ansible/ansible.cfg</code> for system-wide configuration or in the user’s home directory (<code>~/.ansible.cfg</code>) for per-user customization.</p>
+</div>
+<div class="paragraph">
+<p>To view the current configuration settings:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-asciidoc hljs" data-lang="asciidoc">==== View Current Configuration
+
+Use the following command to display the contents of the ansible.cfg file:
+
+cat /etc/ansible/ansible.cfg  # For system-wide config
+# or
+cat ~/.ansible.cfg            # For user-specific config</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can edit this file using any text editor (like <code>nano</code>, <code>vim</code>, or even a graphical editor) with superuser privileges if needed. Remember to save and close the file after making changes.</p>
+</div>
+<div class="paragraph">
+<p>Now that Ansible is installed and configured on your system, you are ready to proceed to writing simple playbooks in the next section.</p>
+</div>
+<div class="paragraph">
+<p><strong>Hands-on activity suggestion:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Attempt to install Ansible on a virtual machine or a spare Linux partition, following these installation steps. This practical exercise reinforces understanding of the installation process and allows learners to troubleshoot any issues that may arise during setup.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a></span>
+  <span class="next"><a href="writing-simple-playbooks.html">Writing simple playbooks</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

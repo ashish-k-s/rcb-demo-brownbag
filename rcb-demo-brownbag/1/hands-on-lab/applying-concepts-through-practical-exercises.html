@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Applying concepts through practical exercises :: Introduction to  Ansible</title>
+    <link rel="prev" href="creating-running-and-debugging-playbooks.html">
+    <link rel="next" href="../appendix/appendix.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../basics-of-ansible/basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible/control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="hands-on-lab.html">Hands-on Lab</a></li>
+    <li><a href="applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Applying concepts through practical exercises</h1>
+<div class="sect1">
+<h2 id="_hands_on_lab_applying_concepts_through_practical_exercises"><a class="anchor" href="#_hands_on_lab_applying_concepts_through_practical_exercises"></a>Hands-on Lab: Applying Concepts through Practical Exercises</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section, we&#8217;ll apply the Ansible concepts discussed earlier through practical exercises. This hands-on lab will help reinforce your understanding and provide an opportunity to put theory into practice. Here&#8217;s what you will accomplish during these exercises:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Setting up a basic Ansible environment</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Install and configure an Ansible control node and managed nodes (virtual machines or cloud instances) for practice.</p>
+</li>
+<li>
+<p>Ensure that the control node can communicate with managed nodes over the network using tools like SSH.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Creating, running, and debugging playbooks</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>*Exercise:* Create a simple inventory file listing your managed nodes and write an Ansible playbook to install and start the Apache web server on each managed node. Run the playbook using the `ansible-playbook` command and observe the output.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>*Debugging Tip:* Use the `-v` or `--verbose` flag with the `ansible-playbook` command to gain more insight into what's happening during execution, which is helpful for troubleshooting issues.</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Managing hosts with Ansible</strong>
+<strong>Exercise:</strong> Modify your playbook from the previous step to ensure that the Apache web server is only installed on specific managed nodes from your inventory based on group membership. Use Ansible groups and variables to target these nodes effectively.</p>
+</li>
+<li>
+<p><strong>Using Ansible modules</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>*Exercise:* Explore various built-in Ansible modules, such as `command`, `shell`, `file`, and `user`. Create playbooks that demonstrate the use of these modules in practical scenarios like managing files, creating users, or executing system commands on managed nodes.</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Handling variables and templates</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>*Exercise:* Learn to use Ansible variables (both inline and from external files) to manage configuration data efficiently. Create a template for an Apache virtual host configuration file using the Jinja2 templating engine. Use this template in your playbook to generate unique configuration files for each managed node based on their specific requirements.</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Control flow with roles</strong></p>
+<div class="literalblock">
+<div class="content">
+<pre>*Exercise:* Organize your playbooks into modular roles that encapsulate related tasks, variables, and templates. This will make your playbooks more maintainable and reusable. Create a role responsible for managing the Apache web server, including installation, configuration, and service management. Utilize this role in your playbooks targeting different groups of managed nodes based on their roles (e.g., web servers, databases).</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After completing these exercises, you will have gained valuable experience in applying Ansible concepts to real-world scenarios, enabling you to manage and automate complex IT infrastructure effectively. Remember to refer to the official Ansible documentation for additional details and advanced use cases. Happy automating!</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a></span>
+  <span class="next"><a href="../appendix/appendix.html">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

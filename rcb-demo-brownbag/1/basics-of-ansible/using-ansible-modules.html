@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Using Ansible modules :: Introduction to  Ansible</title>
+    <link rel="prev" href="managing-hosts-with-ansible.html">
+    <link rel="next" href="handling-variables-and-templates.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="basics-of-ansible.html">Basics of Ansible</a></li>
+    <li><a href="using-ansible-modules.html">Using Ansible modules</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Using Ansible modules</h1>
+<div class="sect1">
+<h2 id="_using_ansible_modules"><a class="anchor" href="#_using_ansible_modules"></a>Using Ansible Modules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ansible modules are reusable, standalone scripts that perform specific tasks on managed nodes. They are a fundamental component of Ansible, enabling automation of various actions such as package management, service control, and file manipulation. This section delves into understanding the structure of Ansible modules and how to effectively use them in playbooks.</p>
+</div>
+<div class="sect2">
+<h3 id="_1_understanding_ansible_modules"><a class="anchor" href="#_1_understanding_ansible_modules"></a>1. Understanding Ansible Modules</h3>
+<div class="paragraph">
+<p>Ansible modules reside in the <code>/usr/share/ansible/</code> directory on your control node. They are organized by function under subdirectories such as <code>apt</code>, <code>command</code>, <code>file</code>, <code>shell</code>, etc. Each module has a corresponding documentation file (<code>module_name.md</code>) located in the <code>docs</code> subdirectory, providing detailed information about its usage, parameters, and examples.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_module_structure"><a class="anchor" href="#_2_module_structure"></a>2. Module Structure</h3>
+<div class="paragraph">
+<p>Ansible modules adhere to a standard structure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>module_name.py</strong>: The core Python script implementing the module&#8217;s functionality.</p>
+</li>
+<li>
+<p><strong>module_name.spec.yaml</strong>: Contains metadata about the module like author, description, and supported Ansible versions.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_3_calling_modules_in_playbooks"><a class="anchor" href="#_3_calling_modules_in_playbooks"></a>3. Calling Modules in Playbooks</h3>
+<div class="paragraph">
+<p>Modules are invoked within tasks in a playbook using the <code>{{ module_name }}</code> syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- name: Ensure Apache is installed
+  apt:
+    name: apache2
+    state: present</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, the <code>apt</code> module manages the <code>apache2</code> package on managed nodes. The task ensures that the package is present (<code>state: present</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_4_module_parameters"><a class="anchor" href="#_4_module_parameters"></a>4. Module Parameters</h3>
+<div class="paragraph">
+<p>Each module accepts parameters to customize its behavior. These parameters are provided within double quotes in the playbook. Some common parameters include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: Mandatory, specifies the target resource (e.g., <code>apache2</code> for a package).</p>
+</li>
+<li>
+<p><strong>state</strong>: Defines the desired state of the resource (present/absent).</p>
+</li>
+<li>
+<p><strong>path</strong>: Specifies paths when required (e.g., <code>file</code> module&#8217;s <code>path</code> parameter).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_5_built_in_vs_custom_modules"><a class="anchor" href="#_5_built_in_vs_custom_modules"></a>5. Built-in vs. Custom Modules</h3>
+<div class="paragraph">
+<p>Ansible comes with a rich set of built-in modules for common tasks. For more specialized needs, you can create custom modules in Python to extend Ansible&#8217;s capabilities. Custom modules must follow the required structure and be placed in an appropriate directory within your project, which is then sourced by the control node.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_6_handling_module_output_and_facts"><a class="anchor" href="#_6_handling_module_output_and_facts"></a>6. Handling Module Output and Facts</h3>
+<div class="paragraph">
+<p>Modules often return information about their operation (e.g., success/failure status, data returned). This output can be used for decision-making within playbooks:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">- name: Check if Apache is running
+  command: systemctl status apache2
+  register: apache_status
+
+- debug:
+    var: apache_status.stdout</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the <code>command</code> module&#8217;s output is stored in a variable (<code>apache_status</code>) and subsequently used for debugging.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_7_troubleshooting_module_issues"><a class="anchor" href="#_7_troubleshooting_module_issues"></a>7. Troubleshooting Module Issues</h3>
+<div class="paragraph">
+<p>When encountering issues with Ansible modules, consult the module documentation or check the managed node logs for errors. Use the <code>-vvvl</code> flag while running your playbook to increase verbosity for detailed output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-playbook -i inventory.ini playbook.yml -vvvl</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hands_on_activity"><a class="anchor" href="#_hands_on_activity"></a>Hands-on Activity</h3>
+<div class="sect3">
+<h4 id="_setting_up_a_basic_ansible_environment_and_module_practice"><a class="anchor" href="#_setting_up_a_basic_ansible_environment_and_module_practice"></a>Setting Up a Basic Ansible Environment and Module Practice</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Environment Setup</strong>: Follow the basic setup guide in your lab to have an operational Ansible environment with a managed node.</p>
+</li>
+<li>
+<p><strong>Module Exploration</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>List available modules using <code>ansible-doc -l</code>.</p>
+</li>
+<li>
+<p>Explore documentation for <code>apt</code>, <code>command</code>, and <code>file</code> modules.</p>
+</li>
+<li>
+<p>Create simple playbooks applying these modules to manage packages or files on the managed node.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Debugging and Error Handling</strong>: Intentionally introduce errors in your playbooks (e.g., incorrect package names) and observe Ansible&#8217;s error messages, then correct them.</p>
+</li>
+<li>
+<p><strong>Custom Module Introduction</strong>: Learn to create a simple custom module that prints a message and incorporate it into a playbook task.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Through this activity, you&#8217;ll gain hands-on experience with using Ansible modules, handling their output, and troubleshooting issues, all vital for mastering automation with Ansible.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a></span>
+  <span class="next"><a href="handling-variables-and-templates.html">Handling variables and templates</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

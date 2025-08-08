@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Handling variables and templates :: Introduction to  Ansible</title>
+    <link rel="prev" href="using-ansible-modules.html">
+    <link rel="next" href="control-flow-with-roles.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Introduction to  Ansible</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-brownbag" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Introduction to  Ansible</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible.html">Basics of Ansible</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-of-ansible-architecture.html">Understanding of Ansible architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installation-and-configuration.html">Installation and configuration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="writing-simple-playbooks.html">Writing simple playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-hosts-with-ansible.html">Managing hosts with Ansible</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-ansible-modules.html">Using Ansible modules</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="handling-variables-and-templates.html">Handling variables and templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="control-flow-with-roles.html">Control flow with roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-basic-ansible-environment.html">Setting up a basic Ansible environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/creating-running-and-debugging-playbooks.html">Creating, running, and debugging playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/applying-concepts-through-practical-exercises.html">Applying concepts through practical exercises</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Introduction to  Ansible</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Introduction to  Ansible</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Introduction to  Ansible</a></li>
+    <li><a href="basics-of-ansible.html">Basics of Ansible</a></li>
+    <li><a href="handling-variables-and-templates.html">Handling variables and templates</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Handling variables and templates</h1>
+<div class="sect1">
+<h2 id="_handling_variables_and_templates"><a class="anchor" href="#_handling_variables_and_templates"></a>Handling Variables and Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ansible uses variables to store dynamic data that can be reused throughout playbooks, roles, and tasks. This not only promotes code reusability but also makes your automation adaptable to various environments. In this section, we&#8217;ll explore how to define, use, and manage variables in Ansible.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Understanding Variables**</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Variables in Ansible are simple key-value pairs that you can set at different scopes: the inventory file, group variables, host variables, and within playbooks. They help in managing diverse environments by allowing you to pass information like usernames, passwords, paths, or any other custom settings specific to your infrastructure.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>**Defining Variables**</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Inventory File</strong>: Variables can be defined at the <code>[all:vars]</code> or <code>[group_name:vars]</code> section of your inventory file. This scope applies to all hosts in a group or the entire inventory.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```ini
+[webservers]
+server1.example.com ansible_host=192.168.1.10 vars:
+   web_port: 8080</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>[all:vars]
+ansible_ssh_private_key_file=/path/to/your/ssh/key
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Within Playbooks</strong>: Variables can be set using the <code>vars</code> keyword in a play. This scope is limited to that specific play and its tasks.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+- hosts: webservers
+  vars:
+    web_port: 8080
+  tasks:
+    - name: Start web server
+      command: /usr/sbin/httpd -p {{ web_port }}
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Using <code>set_fact</code> in Playbooks</strong>: The <code>set_fact</code> module allows you to dynamically create or modify variables based on conditions or expressions.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+- hosts: webservers
+  tasks:
+    - name: Set dynamic port
+      set_fact:
+        web_port: "{{ (8080 if inventory_hostname == "server1.example.com" else 8443) }}"
+  tasks:
+    - name: Start web server
+      command: /usr/sbin/httpd -p {{ web_port }}
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Group Variables</strong>: Define variables applicable to a group of hosts using the <code>[group_name]</code> section in your inventory file or by setting them within a play targeting that group.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```ini
+[webservers]
+server1.example.com ansible_host=192.168.1.10
+server2.example.com ansible_host=192.168.1.11
+[...]
+[webservers:vars]
+web_port=8080
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Using Variables in Tasks</strong></p>
+</div>
+<div class="paragraph">
+<p>Variables can be referenced in tasks using the Jinja2 templating engine, allowing you to insert dynamic values. For example, if you have a variable <code>web_port</code> defined earlier, you can use it like this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+- name: Start web server
+  command: /usr/sbin/httpd -p {{ web_port }}
+```</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Handling Templates</strong></p>
+</div>
+<div class="paragraph">
+<p>Templates in Ansible are text files with placeholders that get replaced by variables when a task uses them. This is particularly useful for managing configuration files, scripts, or any other text-based resources.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Creating Template Files</strong>: Store template files in the <code>templates</code> directory within your role. For example, create a file named <code>httpd.conf.j2</code>.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```ini
+# templates/httpd.conf.j2
+Listen 80
+ServerName %h
+Port {{ web_port }}
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Using Templates in Playbooks</strong>: The <code>template</code> module renders template files and saves the result to a target path on the managed node.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+- name: Create httpd configuration file
+  template:
+    src: templates/httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Best Practices</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Avoid Hardcoding</strong>: Minimize hardcoded values in your playbooks and use variables instead for easy management and reusability.</p>
+</li>
+<li>
+<p><strong>Use Variables Scope Wisely</strong>: Choose the appropriate scope (inventory, group, or play) based on where you need to apply variable settings.</p>
+</li>
+<li>
+<p><strong>Leverage <code>set_fact</code></strong>: Utilize <code>set_fact</code> to generate dynamic values based on conditions or expressions when needed.</p>
+</li>
+<li>
+<p><strong>Organize Templates</strong>: Keep templates organized within a dedicated directory (<code>templates</code>) in your roles for better structure and maintainability.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Understanding and effectively using variables and templates will enable you to create flexible, maintainable, and reusable Ansible automation content. This approach makes managing diverse environments simpler while reducing the risk of errors caused by hardcoding values.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="using-ansible-modules.html">Using Ansible modules</a></span>
+  <span class="next"><a href="control-flow-with-roles.html">Control flow with roles</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
