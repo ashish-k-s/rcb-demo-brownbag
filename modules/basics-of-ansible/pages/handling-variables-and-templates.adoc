@@ -1,0 +1,97 @@
+#  Handling variables and templates
+
+== Handling Variables and Templates
+
+Ansible uses variables to store dynamic data that can be reused throughout playbooks, roles, and tasks. This not only promotes code reusability but also makes your automation adaptable to various environments. In this section, we'll explore how to define, use, and manage variables in Ansible.
+
+ **Understanding Variables**
+
+Variables in Ansible are simple key-value pairs that you can set at different scopes: the inventory file, group variables, host variables, and within playbooks. They help in managing diverse environments by allowing you to pass information like usernames, passwords, paths, or any other custom settings specific to your infrastructure.
+
+ **Defining Variables**
+
+1. **Inventory File**: Variables can be defined at the `[all:vars]` or `[group_name:vars]` section of your inventory file. This scope applies to all hosts in a group or the entire inventory.
+
+    ```ini
+    [webservers]
+    server1.example.com ansible_host=192.168.1.10 vars:
+       web_port: 8080
+
+    [all:vars]
+    ansible_ssh_private_key_file=/path/to/your/ssh/key
+    ```
+
+2. **Within Playbooks**: Variables can be set using the `vars` keyword in a play. This scope is limited to that specific play and its tasks.
+
+    ```yaml
+    - hosts: webservers
+      vars:
+        web_port: 8080
+      tasks:
+        - name: Start web server
+          command: /usr/sbin/httpd -p {{ web_port }}
+    ```
+
+3. **Using `set_fact` in Playbooks**: The `set_fact` module allows you to dynamically create or modify variables based on conditions or expressions.
+
+    ```yaml
+    - hosts: webservers
+      tasks:
+        - name: Set dynamic port
+          set_fact:
+            web_port: "{{ (8080 if inventory_hostname == "server1.example.com" else 8443) }}"
+      tasks:
+        - name: Start web server
+          command: /usr/sbin/httpd -p {{ web_port }}
+    ```
+
+4. **Group Variables**: Define variables applicable to a group of hosts using the `[group_name]` section in your inventory file or by setting them within a play targeting that group.
+
+    ```ini
+    [webservers]
+    server1.example.com ansible_host=192.168.1.10
+    server2.example.com ansible_host=192.168.1.11
+    [...]
+    [webservers:vars]
+    web_port=8080
+    ```
+
+**Using Variables in Tasks**
+
+Variables can be referenced in tasks using the Jinja2 templating engine, allowing you to insert dynamic values. For example, if you have a variable `web_port` defined earlier, you can use it like this:
+
+    ```yaml
+    - name: Start web server
+      command: /usr/sbin/httpd -p {{ web_port }}
+    ```
+
+**Handling Templates**
+
+Templates in Ansible are text files with placeholders that get replaced by variables when a task uses them. This is particularly useful for managing configuration files, scripts, or any other text-based resources.
+
+1. **Creating Template Files**: Store template files in the `templates` directory within your role. For example, create a file named `httpd.conf.j2`.
+
+    ```ini
+    # templates/httpd.conf.j2
+    Listen 80
+    ServerName %h
+    Port {{ web_port }}
+    ```
+
+2. **Using Templates in Playbooks**: The `template` module renders template files and saves the result to a target path on the managed node.
+
+   ```yaml
+   - name: Create httpd configuration file
+     template:
+       src: templates/httpd.conf.j2
+       dest: /etc/httpd/conf/httpd.conf
+   ```
+
+**Best Practices**
+
+- **Avoid Hardcoding**: Minimize hardcoded values in your playbooks and use variables instead for easy management and reusability.
+- **Use Variables Scope Wisely**: Choose the appropriate scope (inventory, group, or play) based on where you need to apply variable settings.
+- **Leverage `set_fact`**: Utilize `set_fact` to generate dynamic values based on conditions or expressions when needed.
+- **Organize Templates**: Keep templates organized within a dedicated directory (`templates`) in your roles for better structure and maintainability.
+
+Understanding and effectively using variables and templates will enable you to create flexible, maintainable, and reusable Ansible automation content. This approach makes managing diverse environments simpler while reducing the risk of errors caused by hardcoding values.

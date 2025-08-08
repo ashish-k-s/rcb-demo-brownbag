@@ -1,0 +1,19 @@
+#  Basics of Ansible
+
+= Basics of Ansible
+
+This section introduces the fundamentals of Ansible, an open-source automation tool used for software provisioning, configuration management, and application deployment. It covers:
+
+- **Understanding of Ansible architecture**: Learn about the Ansible architecture, including its server component (Ansible Tower or AWX) and client components (Ansible Control Node and Managed Nodes).
+
+- **Installation and configuration**: Get step-by-step instructions to install Ansible on various operating systems and configure it for your environment.
+
+- **Writing simple playbooks**: Discover how to create basic automation scripts called playbooks using YAML syntax, which define workflows (plays) to manage configurations on remote nodes.
+
+- **Managing hosts with Ansible**: Understand how to organize and manage target hosts using inventories, groups, and variables for efficient configuration management.
+
+- **Using Ansible modules**: Explore the wide range of built-in Ansible modules that provide reusable, shareable, and maintainable automation code for various tasks like package management, service control, and file manipulation.
+
+- **Handling variables and templates**: Learn to work with variables and Jinja2 templating to make playbooks more dynamic and adaptable to different environments or use cases.
+
+- **Control flow with roles**: Master the concept of roles for organizing playbooks, tasks, handlers, files, templates, and other Ansible artifacts in a modular and reusable manner, improving code maintainability and readability.

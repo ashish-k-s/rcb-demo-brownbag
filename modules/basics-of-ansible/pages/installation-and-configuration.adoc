@@ -1,0 +1,77 @@
+#  Installation and configuration
+
+=== Installation and Configuration
+
+Ansible can be installed on any system that runs one of the following operating systems: Linux (RHEL, CentOS, Fedora, Ubuntu, Debian), macOS, or Windows (PowerShell). This section will guide you through the installation process on a Linux system, specifically Ubuntu. The process is similar for other supported platforms with slight variations in commands.
+
+#### 1. Update your system's package index
+
+Before installing Ansible, ensure that your system's package list is up-to-date:
+
+```asciidoc
+[WARNING]
+Ensure you have superuser privileges (using sudo) before executing the following commands to avoid permission issues.
+
+==== Update Package Index
+
+For Ubuntu/Debian based systems, use the following command:
+
+sudo apt update
+```
+
+#### 2. Install Ansible
+
+Ansible is available in the default repositories of most Linux distributions including Ubuntu. To install it, run:
+
+```asciidoc
+[WARNING]
+Ensure you have superuser privileges (using sudo) before executing the following commands to avoid permission issues.
+
+==== Install Ansible
+
+For Ubuntu/Debian based systems, use the following command:
+
+sudo apt install ansible
+```
+
+#### 3. Verify the installation
+
+To verify if Ansible was installed successfully, check its version:
+
+```asciidoc
+==== Check Ansible Version
+
+Run the following command to display the Ansible version:
+
+ansible --version
+```
+
+You should see an output similar to this, confirming that Ansible is correctly installed and ready for use:
+
+```
+ansible 2.10.44 (develop-5.3.2-95-g56c1a728) python3 on linux_x86_64
+```
+
+#### 4. Configuration
+
+Ansible configuration is handled by a file named `ansible.cfg`. This file contains various settings that customize Ansible's behavior. By default, it's located at `/etc/ansible/ansible.cfg` for system-wide configuration or in the user’s home directory (`~/.ansible.cfg`) for per-user customization.
+
+To view the current configuration settings:
+
+```asciidoc
+==== View Current Configuration
+
+Use the following command to display the contents of the ansible.cfg file:
+
+cat /etc/ansible/ansible.cfg  # For system-wide config
+# or
+cat ~/.ansible.cfg            # For user-specific config
+```
+
+You can edit this file using any text editor (like `nano`, `vim`, or even a graphical editor) with superuser privileges if needed. Remember to save and close the file after making changes.
+
+Now that Ansible is installed and configured on your system, you are ready to proceed to writing simple playbooks in the next section. 
+
+**Hands-on activity suggestion:**
+
+* Attempt to install Ansible on a virtual machine or a spare Linux partition, following these installation steps. This practical exercise reinforces understanding of the installation process and allows learners to troubleshoot any issues that may arise during setup.

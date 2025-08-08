@@ -1,0 +1,93 @@
+#  Understanding of Ansible architecture
+
+= Understanding of Ansible Architecture
+
+Ansible, an open-source automation tool, facilitates configuration management, application deployment, and task automation. To effectively utilize Ansible, understanding its architecture is crucial. This section will detail key architectural components, their roles, and interactions within the Ansible framework.
+
+## Components of Ansible Architecture
+
+### 1. Control Node
+
+The control node is the central point for managing and orchestrating automation tasks in an Ansible environment. It runs the `ansible` command-line tool and stores playbooks, inventory files, and other related resources. The control node communicates with managed nodes (also known as targets) using the Simple Authentication and Security Layer (SASL) over SSH or through its own transport layer, `paramiko`.
+
+#### Key features:
+- Hosts playbooks and inventories
+- Executes playbooks against managed nodes
+- Stores connection details and module facts
+
+### 2. Managed Nodes (Targets)
+
+Managed nodes are the servers, virtual machines, or containers that Ansible manages and automates. These nodes can be configured using playbooks, which define tasks to set up, maintain, or update software and services on managed nodes.
+
+#### Key features:
+- Receive and execute tasks from control node
+- Provide feedback to control node about task status (success/failure)
+- Can run native packages like 'apt', 'yum' for package management
+
+### 3. Inventory
+
+The inventory file is a configuration file that lists managed nodes and their attributes, grouped into logical entities if desired. Ansible uses this inventory file to identify which hosts to manage and how. Inventories can be dynamically generated using various sources like cloud APIs, LDAP, or static files (INI, YAML).
+
+#### Key features:
+- Organizes hosts and groups
+- Specifies connection details and variables for targets
+- Supports dynamic generation from external data sources
+
+### 4. Modules
+
+Ansible modules are reusable, standalone scripts that perform specific tasks on managed nodes. They enable the automation of various system administration activities like package management, file manipulation, service control, and user management. Modules can be built-in or custom. Built-in modules cover a wide range of functionalities, while custom modules allow extending Ansible's capabilities for specialized use cases.
+
+#### Key features:
+- Perform specific actions on managed nodes (e.g., `apt`, `user`)
+- Return facts and changes made during execution
+- Can be built-in or user-defined
+
+### 5. Playbooks
+
+Playbooks are Ansible's configuration, deployment, and orchestration language. They define a series of automated tasks (plays) to be executed on managed nodes or groups of nodes. Playbooks simplify automation by organizing multiple tasks into reusable structures, promoting consistency and reducing errors through version control.
+
+#### Key features:
+- Define a sequence of tasks (plays) to execute
+- Allow variable management and role usage for modularity
+- Enable conditional task execution with `when` conditions and loops (`with_`, `with_items`)
+
+### 6. Roles
+
+Roles in Ansible provide a mechanism for organizing playbooks, tasks, files, templates, and other related content into reusable units. They facilitate code reuse, modularity, and better collaboration by enabling separation of concerns within a project. Roles are defined in dedicated directories and referenced in playbooks using the `roles` keyword.
+
+#### Key features:
+- Group related files, tasks, and variables
+- Encourage modular design and reusability
+- Simplify dependency management between components
+
+### 7. Connection Plugin
+
+The connection plugin establishes a communication channel between the control node and managed nodes. Ansible offers multiple plugins for connecting via SSH (default), WinRM for Windows, or other custom transports. This flexibility ensures compatibility with diverse environments and platforms.
+
+#### Key features:
+- Enables secure remote execution
+- Supports various protocols (SSH, WinRM)
+- Extensible through custom plugins for specialized connections
+
+### 8. Facts
+
+Ansible gathers a wealth of information about managed nodes known as facts. These facts describe system details such as operating system, IP address, installed packages, and more. Playbooks can access these facts to make decisions dynamically, tailoring automation based on the target environment.
+
+#### Key features:
+- Provide detailed system characteristics
+- Support conditional task execution (`when`)
+- Accessible via `ansible` command or API
+
+## Interaction and Workflow
+
+When an Ansible playbook is executed, the following workflow ensues:
+
+1. The control node reads the inventory file to determine which managed nodes to target.
+2. For each target, it establishes a connection using the chosen transport method (e.g., SSH).
+3. Modules are invoked on managed nodes to carry out defined tasks based on playbook instructions.
+4. Managed nodes execute modules and return results (facts and changes) back to the control node.
+5. The control node processes these results, updates its internal state, and presents the outcomes to the user.
+
+Understanding Ansible's architecture is fundamental for harnessing its automation capabilities efficiently. By familiarizing yourself with control nodes, managed nodes, inventories, modules, playbooks, roles, connection plugins, and facts, you can effectively manage and automate diverse IT environments using Ansible.
+
+**Next:** Proceed to [Writing simple playbooks](writing-simple-playbooks.adoc) for practical implementation of Ansible concepts.

@@ -1,0 +1,11 @@
+#  Hands-on Lab
+
+= Hands-on Lab
+
+This section offers a practical approach to learning Ansible through guided exercises and real-world scenarios. Key activities include:
+
+- *Setting up a basic Ansible environment*: Learn to install and configure Ansible on your local system or a virtual machine, preparing it for managing hosts and automating tasks.
+  
+- *Creating, running, and debugging playbooks*: Gain experience in writing simple Ansible playbooks, executing them to automate system configurations, and troubleshooting common errors during playbook runs.
+   
+- *Applying concepts through practical exercises*: Engage with hands-on activities that reinforce understanding of Ansible architecture, modules, variables, templates, roles, and control flow, solidifying your skills in managing hosts using this powerful automation tool.

@@ -1,0 +1,8 @@
+* xref:basics-of-ansible.adoc[]
+** xref:understanding-of-ansible-architecture.adoc[]
+** xref:installation-and-configuration.adoc[]
+** xref:writing-simple-playbooks.adoc[]
+** xref:managing-hosts-with-ansible.adoc[]
+** xref:using-ansible-modules.adoc[]
+** xref:handling-variables-and-templates.adoc[]
+** xref:control-flow-with-roles.adoc[]

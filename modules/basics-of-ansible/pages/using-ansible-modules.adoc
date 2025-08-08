@@ -1,0 +1,80 @@
+#  Using Ansible modules
+
+== Using Ansible Modules
+
+Ansible modules are reusable, standalone scripts that perform specific tasks on managed nodes. They are a fundamental component of Ansible, enabling automation of various actions such as package management, service control, and file manipulation. This section delves into understanding the structure of Ansible modules and how to effectively use them in playbooks.
+
+### 1. Understanding Ansible Modules
+
+Ansible modules reside in the `/usr/share/ansible/` directory on your control node. They are organized by function under subdirectories such as `apt`, `command`, `file`, `shell`, etc. Each module has a corresponding documentation file (`module_name.md`) located in the `docs` subdirectory, providing detailed information about its usage, parameters, and examples.
+
+### 2. Module Structure
+
+Ansible modules adhere to a standard structure:
+
+- **module_name.py**: The core Python script implementing the module's functionality.
+- **module_name.spec.yaml**: Contains metadata about the module like author, description, and supported Ansible versions.
+
+### 3. Calling Modules in Playbooks
+
+Modules are invoked within tasks in a playbook using the `{{ module_name }}` syntax:
+
+```yaml
+- name: Ensure Apache is installed
+  apt:
+    name: apache2
+    state: present
+```
+
+In this example, the `apt` module manages the `apache2` package on managed nodes. The task ensures that the package is present (`state: present`).
+
+### 4. Module Parameters
+
+Each module accepts parameters to customize its behavior. These parameters are provided within double quotes in the playbook. Some common parameters include:
+
+- **name**: Mandatory, specifies the target resource (e.g., `apache2` for a package).
+- **state**: Defines the desired state of the resource (present/absent).
+- **path**: Specifies paths when required (e.g., `file` module's `path` parameter).
+
+### 5. Built-in vs. Custom Modules
+
+Ansible comes with a rich set of built-in modules for common tasks. For more specialized needs, you can create custom modules in Python to extend Ansible's capabilities. Custom modules must follow the required structure and be placed in an appropriate directory within your project, which is then sourced by the control node.
+
+### 6. Handling Module Output and Facts
+
+Modules often return information about their operation (e.g., success/failure status, data returned). This output can be used for decision-making within playbooks:
+
+```yaml
+- name: Check if Apache is running
+  command: systemctl status apache2
+  register: apache_status
+
+- debug:
+    var: apache_status.stdout
+```
+
+In this case, the `command` module's output is stored in a variable (`apache_status`) and subsequently used for debugging.
+
+### 7. Troubleshooting Module Issues
+
+When encountering issues with Ansible modules, consult the module documentation or check the managed node logs for errors. Use the `-vvvl` flag while running your playbook to increase verbosity for detailed output:
+
+```bash
+ansible-playbook -i inventory.ini playbook.yml -vvvl
+```
+
+### Hands-on Activity
+
+#### Setting Up a Basic Ansible Environment and Module Practice
+
+1. **Environment Setup**: Follow the basic setup guide in your lab to have an operational Ansible environment with a managed node.
+2. **Module Exploration**:
+   - List available modules using `ansible-doc -l`.
+   - Explore documentation for `apt`, `command`, and `file` modules.
+   - Create simple playbooks applying these modules to manage packages or files on the managed node.
+   
+3. **Debugging and Error Handling**: Intentionally introduce errors in your playbooks (e.g., incorrect package names) and observe Ansible's error messages, then correct them.
+   
+4. **Custom Module Introduction**: Learn to create a simple custom module that prints a message and incorporate it into a playbook task.
+
+Through this activity, you'll gain hands-on experience with using Ansible modules, handling their output, and troubleshooting issues, all vital for mastering automation with Ansible.

@@ -1,0 +1,70 @@
+#  Writing simple playbooks
+
+- **Writing Simple Playbooks**
+
+  Ansible playbooks are files written in YAML format that contain a series of tasks organized into plays. Each play specifies the target hosts and the actions to perform on them. Writing simple playbooks is an essential skill for automating tasks with Ansible. Here's how you can get started:
+
+1. **Understanding Playbook Structure**
+
+   A basic Ansible playbook looks like this:
+
+   ```yaml
+   ---
+   - hosts: webservers
+     become: yes
+     tasks:
+       - name: Install Apache
+         apt:
+           name: apache2
+           state: present
+   ```
+
+   Let's break down the structure:
+
+   - `---`: This marks the start of the playbook.
+   - `hosts:`: Specifies the target hosts for the play. In this case, it targets all hosts with the role 'webservers'.
+   - `become`: This keyword is used to escalate privileges (become another user, often the root user) when executing tasks. Using `yes` enables privilege escalation.
+   - `tasks`: Contains a list of tasks to perform on the target hosts.
+
+   The task under `tasks` installs Apache on the target web servers using the APT package manager.
+
+2. **Key Playbook Components**
+
+   Here are some essential components you'll often encounter in Ansible playbooks:
+
+   - **Host Patterns**: Define which hosts a play applies to. Common patterns include single hostnames, groups (defined in an inventory file), or dynamic host lists based on external facts or scripts.
+   - **Tasks**: Individual actions to be performed on target hosts, using modules.
+   - **Modules**: Reusable, standalone programs that Ansible runs on the managed nodes. Ansible provides a wide range of built-in modules for various use cases (e.g., `apt`, `command`, `file`, `service`).
+   - **Handlers**: Specialized tasks triggered by changes reported by notify statements within tasks, ensuring orderly execution and reducing unnecessary task reruns.
+
+3. **Writing Your First Playbook**
+
+   To write a simple playbook that installs Apache on web servers:
+
+   a. Create a new file named `install_apache.yml`.
+   b. Add the following content to the file:
+
+   ```yaml
+   ---
+   - hosts: webservers
+     become: yes
+     tasks:
+       - name: Install Apache
+         apt:
+           name: apache2
+           state: present
+   ```
+
+   c. Save the file and run the playbook with `ansible-playbook install_apache.yml`.
+
+4. **Testing and Debugging**
+
+   After running your playbook, monitor the output for success or failure messages. Use `-vvv` (verbose) flag to see detailed logs:
+
+   ```bash
+   ansible-playbook -vvv install_apache.yml
+   ```
+
+   If errors occur, carefully examine the error messages, as they often point to issues with host connectivity, module usage, or incorrect syntax.
+
+By mastering writing simple playbooks, you'll be able to automate routine tasks and efficiently manage your infrastructure with Ansible. As you progress, explore more complex playbook structures, advanced modules, and roles for even greater control and reusability.
